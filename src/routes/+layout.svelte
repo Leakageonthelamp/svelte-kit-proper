@@ -6,12 +6,12 @@
 
 	export let data: LayoutData;
 
-	const logout = async () => {
-		const response = await fetch('/api/logout', { method: 'POST' });
-		if (response.ok) {
-			invalidateAll();
-		}
-	};
+	// const logout = async () => {
+	// 	const response = await fetch('/api/logout', { method: 'POST' });
+	// 	if (response.ok) {
+	// 		invalidateAll();
+	// 	}
+	// };
 </script>
 
 <svelte:head>
@@ -35,7 +35,9 @@
 		</div>
 
 		{#if data.user}
-			<button class="bg-blue-400" on:click={() => logout()}>Logout</button>
+			<form method="POST" action="/login?/logout">
+				<button class="bg-blue-400" type="submit">Logout</button>
+			</form>
 		{/if}
 	</nav>
 
